@@ -358,6 +358,17 @@ if [ "$installSSH" = "y" ]; then
     ssh_install="apt-get -y update"
   fi
 
+read -p "Do you want to update intel graphics driver for ubuntu ${ubuntu_version}? Type y or n :" installIntel
+if [ "$installIntel" = "y" ]; then
+    intel_install="add-apt-repository \"deb https://download.01.org/gfx/ubuntu/${ubuntu_version}/main Ubuntu ${ubuntu_version}\"
+                    apt-get -y update
+                    apt-get -y install intel-linux-graphics-installer"
+    else
+      intel_install="apt-get -y update"
+  fi
+  
+
+
 echo -e "useradd -m ${username} -s /bin/bash
 passwd ${username}
 apt-get -y update
@@ -372,6 +383,7 @@ add-apt-repository multiverse
 apt-get -y update
 apt-get -y install $ubuntu_metapackage
 apt-get -y install build-essential
+$intel_install
 $mysql_install
 $chef_install
 $ssh_install
