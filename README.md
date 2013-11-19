@@ -21,6 +21,7 @@ Features: <br />
 	11. Optional Chef Server Install (12.04 only)<br />
 	12. Optional OpenSSH Server Install<br />
 	13. Choose custom hostname, doesn't default to chrubuntu<br />
+	14. Optional intel video driver update (may or may not work for some ubuntu versions)
 
 Instructions: Follow guide @ original script url, replace http://goo.gl/s9ryd with http://goo.gl/8gWZBL<br />
 			  file name is called install.sh so run like curl -L -O http://goo.gl/8gWZBL; sudo bash install.sh<br />
