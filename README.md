@@ -1,9 +1,11 @@
 fixmyserver
 ===========
+
 Author: Austin Smith
 
 Description: Heavily upgraded chrubuntu install script for reformatting my server,
 			 Original script from - http://chromeos-cr48.blogspot.com/2013/05/chrubuntu-one-script-to-rule-them-all_31.html
+
 Features: 
 	1. Choose username and password, no more default user login
 	2. Creates cron job to trim ssd daily
