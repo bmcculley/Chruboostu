@@ -24,7 +24,7 @@ Features: <br />
 	14. Optional intel video driver update (may or may not work for some ubuntu versions)
 
 Instructions: Follow guide @ original script url, replace http://goo.gl/s9ryd with http://goo.gl/8gWZBL<br />
-			  file name is called install.sh so run like curl -L -O http://goo.gl/8gWZBL; sudo bash install.sh<br />
+			  run script: curl -L -O http://goo.gl/8gWZBL; sudo bash 8gWZBL<br />
 			  Enjoy :)<br />
 			  
 Disclaimer:   Use at your own risk, no warranty of any kind
