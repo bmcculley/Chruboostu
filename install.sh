@@ -383,16 +383,6 @@ apt-get -y update
 apt-get -y install $ubuntu_metapackage
 apt-get -y install build-essential
 apt-get -y install apt-transport-https
-$intel_install
-$mysql_install
-$chef_install
-$ssh_install
-$cr_install
-$steam_install
-$vmin_install
-$webmin_install
-$utorrent_install
-$plex_install
 if [ -f /usr/lib/lightdm/lightdm-set-defaults ]
 then
   /usr/lib/lightdm/lightdm-set-defaults --autologin ${username}
@@ -400,6 +390,16 @@ fi
 adduser ${username} adm
 adduser ${username} sudo
 $trim_install
+$mysql_install
+$ssh_install
+$chef_install
+$vmin_install
+$webmin_install
+$utorrent_install
+$steam_install
+$plex_install
+$cr_install
+$intel_install
 " > /tmp/urfs/install-ubuntu.sh
 
 chmod a+x /tmp/urfs/install-ubuntu.sh
