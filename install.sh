@@ -274,10 +274,7 @@ read -p "Enter username : " username
 
 read -p "Do you want to install steam? Type y or n :" installSteam
 if [ "$installSteam" = "y" ]; then
-    steam_install="apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
-                     add-apt-repository \"deb http://repo.steampowered.com/steam/ precise steam\"
-                     apt-get -y update
-                     wget http://media.steampowered.com/client/installer/steam.deb
+    steam_install="wget http://media.steampowered.com/client/installer/steam.deb
                      apt-get -y install gdebi-core
                      gdebi steam.deb
                      rm steam.deb"
