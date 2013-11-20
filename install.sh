@@ -221,7 +221,8 @@ chmod a+rx /tmp/urfs/usr/bin/cgpt
 cp /etc/resolv.conf /tmp/urfs/etc/
 echo $hostname > /tmp/urfs/etc/hostname
 #echo -e "127.0.0.1       localhost"
-echo -e "\n127.0.0.1     localhost" >> /tmp/urfs/etc/hosts
+echo -e "127.0.0.1     localhost
+         127.0.0.1     ${hostname}" >> /tmp/urfs/etc/hosts
 # The following lines are desirable for IPv6 capable hosts
 #::1     localhost ip6-localhost ip6-loopback
 #fe00::0 ip6-localnet
@@ -288,7 +289,8 @@ read -p "Do you want to install virtualmin? Type y or n :" installVmin
 if [ "$installVmin" = "y" ]; then
     vmin_install="wget http://software.virtualmin.com/gpl/scripts/install.sh
                     chmod +x install.sh
-                    ./install.sh"
+                    ./install.sh
+                    rm install.sh"
     else
       vmin_install="apt-get -y update"
   fi
@@ -330,7 +332,7 @@ if [ "$installPlex" = "y" ]; then
     apt-key -y add plex_pub_key.pub
     rm plex_pub_key.pub
     apt-get -y update
-    apt-get -f -y --force-yes install plexmediaserver"
+    apt-get --force-yes install plexmediaserver"
     else
       plex_install="apt-get -y update"
   fi
@@ -358,9 +360,9 @@ if [ "$installSSH" = "y" ]; then
     ssh_install="apt-get -y update"
   fi
 
-read -p "Do you want to update intel graphics driver for ubuntu ${ubuntu_version}? Type y or n :" installIntel
+read -p "Do you want to update intel graphics driver for ubuntu ${ubuntu_version:0:5}? Type y or n :" installIntel
 if [ "$installIntel" = "y" ]; then
-    intel_install="add-apt-repository \"deb https://download.01.org/gfx/ubuntu/${ubuntu_version}/main Ubuntu ${ubuntu_version}\"
+    intel_install="add-apt-repository \"deb https://download.01.org/gfx/ubuntu/${ubuntu_version:0:5}/main Ubuntu ${ubuntu_version:0:5}\"
                     apt-get -y update
                     apt-get -y install intel-linux-graphics-installer"
     else
@@ -383,6 +385,7 @@ add-apt-repository multiverse
 apt-get -y update
 apt-get -y install $ubuntu_metapackage
 apt-get -y install build-essential
+apt-get -y install apt-transport-https
 $intel_install
 $mysql_install
 $chef_install
