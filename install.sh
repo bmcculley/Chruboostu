@@ -221,8 +221,8 @@ chmod a+rx /tmp/urfs/usr/bin/cgpt
 cp /etc/resolv.conf /tmp/urfs/etc/
 echo $hostname > /tmp/urfs/etc/hostname
 #echo -e "127.0.0.1       localhost"
-echo -e "127.0.0.1     localhost
-         127.0.0.1     ${hostname}" >> /tmp/urfs/etc/hosts
+echo -e "\n127.0.0.1     localhost
+         \n127.0.0.1     ${hostname}" >> /tmp/urfs/etc/hosts
 # The following lines are desirable for IPv6 capable hosts
 #::1     localhost ip6-localhost ip6-loopback
 #fe00::0 ip6-localnet
