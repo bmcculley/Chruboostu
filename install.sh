@@ -383,6 +383,8 @@ apt-get -y update
 apt-get -y install $ubuntu_metapackage
 apt-get -y install build-essential
 apt-get -y install apt-transport-https
+apt-get -y install mesa-utils
+apt-get -y install localepurge
 if [ -f /usr/lib/lightdm/lightdm-set-defaults ]
 then
   /usr/lib/lightdm/lightdm-set-defaults --autologin ${username}
@@ -415,7 +417,7 @@ then
 fi
 cp -ar /lib/firmware/* /tmp/urfs/lib/firmware/
 
-echo "console=tty1 debug verbose root=${target_rootfs} rootwait rw lsm.module_locking=0" > kernel-config
+echo "console=tty1 debug verbose root=${target_rootfs} rootwait rw lsm.module_locking=0 disablevmx=off" > kernel-config
 vbutil_arch="x86"
 if [ $ubuntu_arch = "armhf" ]
 then
